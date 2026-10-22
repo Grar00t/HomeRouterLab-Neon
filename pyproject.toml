@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "homerouterlab-neon"
+version = "0.2.0"
+description = "Read-only, layered WAN probe and diagnostics for home routers. No configuration changes."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Grar00t" }]
+keywords = ["network", "diagnostics", "wan", "tr-064", "upnp", "router"]
+dependencies = ["requests>=2.28"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "pytest-cov>=5"]
+
+[project.scripts]
+homerouterlab = "homerouterlab.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/Grar00t/HomeRouterLab-Neon"
+Issues = "https://github.com/Grar00t/HomeRouterLab-Neon/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
